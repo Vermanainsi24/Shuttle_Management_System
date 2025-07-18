@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: backend
+    env: node
+    region: oregon  # or frankfurt, etc.
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: node index.js  # or `npm start` if defined in package.json
+    rootDir: backend
+    envVars:
+      - key: JWT_SECRET
+        value: your_secret_here
+      - key: MONGO_URI
+        value: your_mongodb_connection_here
